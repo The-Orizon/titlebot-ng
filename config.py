@@ -15,9 +15,14 @@ HEADERS = [("Accept-Charset", "utf-8, iso-8859-1"),
            ("X-Prefetch", "yes"),
            ("X-Requested-With", "Titlebot")]
 
-IGNORED_URLS = ["https://app.gumble.tk/img/",
-                "https?:/*git.io(/|$)",
-                "http://weibo.com/[0-9]+/[a-zA-Z0-9]{9}"]
+IGNORED_URLS = [r"https:\/\/img.gumble.pw",
+                r"https:\/\/img.orz.chat",
+                r"https:\/\/orz.chat/tls.html",
+                r"https:\/\/img.vim-cn.com/.*webp$",
+                r"https:\/\/matrix.org\/_matrix\/media\/v1\/download",
+                r"https?:/*git.io(/|$)",
+                r"http://weibo.com/[0-9]+/[a-zA-Z0-9]{9}",
+                r"http://www.weibo.com/[0-9]+/[a-zA-Z0-9]{9}"]
 
 I2P_USER = ""
 I2P_PASSWORD = ""

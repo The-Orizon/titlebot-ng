@@ -5,7 +5,7 @@ from queue import Queue
 import re
 import web
 from urllib.error import HTTPError
-from hack import async, restart_program, Signal
+from hack import new_thread, restart_program, Signal
 import libirc
 from time import sleep
 from config import (HOST, PORT, NICK, IDENT,
@@ -48,7 +48,7 @@ class IRCHandler(object):
     def _say(self, nick, text):
         self.__connection.say(nick, text)
 
-    @async
+    @new_thread
     def __say(self):
         while self.__running:
             sleep(0.5)
@@ -82,7 +82,7 @@ class MessageHandler(object):
         self.__handler = irc_handler
         self.__handler.message_recived.connect(self.message_handler)
 
-    @async
+    @new_thread
     def message_handler(self, msg):
         if msg['dest'] == NICK:
             self.react_command(msg)
@@ -105,7 +105,7 @@ class MessageHandler(object):
         for word in msg['msg'].split():
             self.say_title(msg['dest'], word)
 
-    @async
+    @new_thread
     def say_title(self, channel, text):
         url = web.pickup_url(text)
         if not url:

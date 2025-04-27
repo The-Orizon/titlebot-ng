@@ -1,4 +1,4 @@
-HOST = "irc.freenode.net"
+HOST = "irc.libera.chat"
 PORT = 7000
 NICK = "ttlbot"
 IDENT = "ttlbot"
